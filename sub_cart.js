@@ -1,12 +1,12 @@
 "use strict";
-
+// stricco mode
 /*
    New Perspectives on HTML5, CSS3 and JavaScript 6th Edition
    Tutorial 12
    Case Problem 2
 
-   Author: 
-   Date:   
+   Author: Christian Gregorio
+   Date: 4.3.19  
 
    Filename: sub_cart.js
 
@@ -22,3 +22,13 @@
 
 */
 
+window.addEventListener("load", setupCart);
+
+function setupCart() {
+      var addButtons = document.querySelectorAll("input.addButton");
+
+}
+
+function addItem(e) {
+
+}
