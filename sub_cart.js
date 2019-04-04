@@ -25,10 +25,21 @@
 window.addEventListener("load", setupCart);
 
 function setupCart() {
-      var addButtons = document.querySelectorAll("input.addButton");
-
+      var addButtons = document.getElementsByClassName("addButton");
+      // when the input button is clicked, run the addItem function.
+      for (var i = 0; i <= addButtons.length; i++) {
+            addEventListener("click", addItem);
+      }
 }
 
 function addItem(e) {
+      var foodItem = e.target.nextElementSibling;
+      // targets the id of the food item variable
+      var foodID = foodItem.target.id;
 
+      var foodDescription
+
+      var cartBox
+
+      var duplicateOrder
 }
