@@ -27,12 +27,13 @@ window.addEventListener("load", setupCart);
 function setupCart() {
       var addButtons = document.getElementsByClassName("addButton");
       // when the input button is clicked, run the addItem function.
-      for (var i = 0; i <= addButtons.length; i++) {
-            addEventListener("click", addItem);
+      for (var i = 0; i < addButtons.length; i++) {
+            addButtons[i].onclick = addItem;
       }
 }
 
 function addItem(e) {
+
       // references the next sibling to the event object's target
       var foodItem = e.target.nextElementSibling;
       // targets the id of the food item variable
@@ -44,19 +45,17 @@ function addItem(e) {
 
       var duplicateOrder = false;
 
-      // here I defined a variable which I could use in place of putting a few extra parts into the loop
-      var cartBoxChildren = cartBox.childNodes
-
-      for (var n = cartBox.firstChild; n = n.nextSibling; n !== null) {
-            if (cartBoxChildren.id = foodID) {
-                  cartBox++;
+      for (var n = cartBox.firstChild; n = n.nextElementSibling; n !== null) {
+            if (n.id === foodID) {
+                  duplicateOrder = true;
+                  n.firstElementChild.textContent++;
                   break;
             }
       }
 
-      if (duplicateOrder = false) {
-            var orderCount = document.createElement('span');
-            orderCount.innerHTML = '1';
+      if (duplicateOrder === false) {
+            var orderCount = document.createElement("span");
+            orderCount.textContent = "1";
             foodDescription.insertBefore(orderCount, foodDescription.firstChild);
             cartBox.appendChild(foodDescription);
       }
