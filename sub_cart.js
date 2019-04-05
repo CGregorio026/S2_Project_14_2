@@ -33,13 +33,31 @@ function setupCart() {
 }
 
 function addItem(e) {
+      // references the next sibling to the event object's target
       var foodItem = e.target.nextElementSibling;
       // targets the id of the food item variable
-      var foodID = foodItem.target.id;
+      var foodID = foodItem.getAttribute("id");
+      // cloning the node and all of its descendants requires for the node that's being cloned to have its deep value be set to true (deep being the value inside the cloneNode).
+      var foodDescription = foodItem.cloneNode(true);
 
-      var foodDescription
+      var cartBox = document.getElementById("cart");
 
-      var cartBox
+      var duplicateOrder = false;
 
-      var duplicateOrder
+      // here I defined a variable which I could use in place of putting a few extra parts into the loop
+      var cartBoxChildren = cartBox.childNodes
+
+      for (var n = cartBox.firstChild; n = n.nextSibling; n !== null) {
+            if (cartBoxChildren.id = foodID) {
+                  cartBox++;
+                  break;
+            }
+      }
+
+      if (duplicateOrder = false) {
+            var orderCount = document.createElement('span');
+            orderCount.innerHTML = '1';
+            foodDescription.insertBefore(orderCount, foodDescription.firstChild);
+            cartBox.appendChild(foodDescription);
+      }
 }
